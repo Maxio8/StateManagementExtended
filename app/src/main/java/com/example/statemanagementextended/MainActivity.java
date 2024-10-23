@@ -1,6 +1,6 @@
 package com.example.statemanagementextended;
 
-import android.graphics.Color; // Import the Color class
+import android.graphics.Color; 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         counterText.setText("Licznik: " + Count);
 
-
+        // switch
         tryb.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
 
@@ -48,27 +48,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tryb.setOnCheckedChangeListener((checkBox, isChecked) -> {
+        // checkbox
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-
-                tryb.setText('zaznaczone');
+                textInput.setVisibility(View.VISIBLE);
             } else {
-
-                tryb.setText('odznaczone');
+                textInput.setVisibility(View.GONE);
             }
         });
 
-
-
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               String textInput2 = text.getText().toString().trim();
-                textInput.setText(textInput2);
-                Count++;
-                counterText.setText("Licznik: " + Count);
-            }
+        // Licznik / Button
+        button.setOnClickListener(v -> {
+            String textInput2 = text.getText().toString().trim();
+            textInput.setText(textInput2);
+            Count++;
+            counterText.setText("Licznik: " + Count);
         });
     }
 }
+
+
